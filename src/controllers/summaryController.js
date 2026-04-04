@@ -25,3 +25,8 @@ export const summary = async (req, res) => {
     categoryTotals,
   });
 };
+
+
+export default {
+    summary
+}

@@ -11,6 +11,10 @@ app.use(cookieParser());
 app.use("/api/user", userRoutes);
 app.use("/api/record", recordRoutes);
 
+app.use("/", (req, res) =>{
+    res.status(201).json({message : "Hello world"});
+})
+
 app.use("/routes", (req, res) =>{
     res.status(201).json({message : "Hello world"});
 })

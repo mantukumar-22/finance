@@ -102,35 +102,11 @@ export const deleteRecord = async (req, res) => {
     }
 }
 
-// export const getRecordById = async (req, res) => {
-//     try{
-//         const id = req.params.id;
-//         const record = await Record.findOne({
-//             _id : id,
-//             createdBy: req.user.id
-//             });
-//         if(!record){
-//             return res.status(400).json({
-//                 success : false,
-//                 message : "Invaild cridatial"
-//             })
-//         }
-//         res.status(200).json({
-//             success : true,
-//             message : "Record retrieved successfully",
-//             record
-//         });
-// }
-//     catch(error){
-//         res.status(500).json({ 
-//             success: false,
-//             message: "Internal Server Error"
-//         });
-//     }
-// }
+
 
 export  default {
     createRecord,
-    getRecords
-    
+    getRecords,
+    updateRecord,
+    deleteRecord
 };
