@@ -9,8 +9,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.get("/", (req, res) =>{
-    res.status(201).json({message : "Finance Tracker API"});
-})
+    res.send("Finance Tracker API");
+});
 
 app.use("/api/user", userRoutes);
 app.use("/api/record", recordRoutes);
