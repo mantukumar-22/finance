@@ -18,9 +18,6 @@ export const authenticateToken = async (req, res, next) => {
             return res.status(401).json({ success : false, message: "Invalid credentials" });
         }
 
-        // if(decoded.role !== user.role){
-        //     return res.status(403).json({ success : false, message: "Forbidden access" });
-        // }
         req.user = user;
         next();
 

@@ -1,4 +1,5 @@
 import Record from "../models/Record.js";
+import Filter from "../utills/filter.js";
 
 export const createRecord = async (req, res) => {
     try{
@@ -30,7 +31,12 @@ export const createRecord = async (req, res) => {
 
 export const getRecords = async (req, res) => {
     try{
-        const records = await Record.find({ createdBy: req.user.id }).sort({ date: -1 });
+
+        const apiFeatures = new Filter(Record.find({ createdBy: req.user.id }), req.query)
+        .search()
+        .filter();
+        const records = await apiFeatures.query.sort({ date: -1 });
+
 
         res.status(200).json({
             success: true,
@@ -101,7 +107,6 @@ export const deleteRecord = async (req, res) => {
         });
     }
 }
-
 
 
 export  default {
